@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="System Architecture Diagram - Wholesale Book Store Management System">
+    <title>System Architecture | Wholesale Book Store Management System</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.05em;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .info-section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-section p, .info-section li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+        }
+
+        .layer {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .layer strong {
+            color: #667eea;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        .btn-back {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-back:hover {
+            background: #d0d0d0;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .component-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .component-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .component-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .component-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .mermaid {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-back">← กลับไปหน้าแรก | Back to Home</a>
+            <a href="README.md" class="btn">📄 README</a>
+            <a href="analysis-design.md" class="btn">📊 Analysis & Design</a>
+        </div>
+
+        <header>
+            <h1>🏗️ System Architecture Diagram</h1>
+            <h2 style="color: #764ba2; font-size: 1.2em; font-weight: 300;">ระบบร้านขายหนังสือแบบขายส่งเป็นเล่ม</h2>
+            <p>สถาปัตยกรรมระบบและการเชื่อมต่อระหว่าง Components</p>
+        </header>
+
+        <div class="content">
+            <div class="mermaid">
+graph TB
+    subgraph Actors["👥 Actors | บทบาท"]
+        Customer["👤 Customer<br/>ลูกค้า"]
+        Staff["👔 Staff<br/>พนักงาน"]
+        Admin["🔐 Admin<br/>ผู้ดูแลระบบ"]
+    end
+
+    subgraph Presentation["📱 Presentation Layer | ชั้นการนำเสนอ"]
+        CustomerUI["Customer<br/>Interface"]
+        StaffUI["Staff<br/>Dashboard"]
+        AdminUI["Admin<br/>Dashboard"]
+    end
+
+    subgraph Services["🔧 Business Logic Layer | ชั้นธุรกิจ"]
+        UserService["👤 User Service<br/>จัดการผู้ใช้"]
+        BookService["📚 Book Service<br/>จัดการหนังสือ"]
+        OrderService["🛒 Order Service<br/>จัดการคำสั่งซื้อ"]
+        PaymentService["💳 Payment Service<br/>จัดการการชำระเงิน"]
+        InventoryService["📦 Inventory Service<br/>จัดการสต็อก"]
+    end
+
+    subgraph Data["💾 Data Layer | ชั้นข้อมูล"]
+        Database["🗄️ Database<br/>MySQL/PostgreSQL"]
+        Cache["⚡ Cache<br/>Session/Data"]
+    end
+
+    subgraph External["🌐 External Systems | ระบบภายนอก"]
+        EmailService["📧 Email Service<br/>ระบบอีเมล"]
+        PaymentGateway["💰 Payment Gateway<br/>ประตูทางชำระเงิน"]
+    end
+
+    Customer -->|Browse & Search| CustomerUI
+    Staff -->|Manage Orders| StaffUI
+    Admin -->|Manage System| AdminUI
+
+    CustomerUI --> UserService
+    CustomerUI --> BookService
+    CustomerUI --> OrderService
+    CustomerUI --> PaymentService
+
+    StaffUI --> OrderService
+    StaffUI --> PaymentService
+    StaffUI --> InventoryService
+
+    AdminUI --> UserService
+    AdminUI --> BookService
+    AdminUI --> InventoryService
+
+    UserService --> Database
+    UserService --> Cache
+    BookService --> Database
+    OrderService --> Database
+    PaymentService --> Database
+    InventoryService --> Database
+
+    OrderService --> EmailService
+    PaymentService --> PaymentGateway
+    OrderService --> InventoryService
+
+    style Actors fill:#e1f5ff,stroke:#667eea,stroke-width:2px
+    style Presentation fill:#f3e5f5,stroke:#764ba2,stroke-width:2px
+    style Services fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style Data fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style External fill:#fce4ec,stroke:#e91e63,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📋 องค์ประกอบของระบบ | System Components</h2>
+            
+            <h3>👥 บทบาท (Actors)</h3>
+            <div class="component-list">
+                <div class="component-card">
+                    <h4>👤 Customer (ลูกค้า)</h4>
+                    <p>ผู้ซื้อหนังสือที่เข้ามาใช้ระบบเพื่อค้นหา สั่งซื้อ และชำระเงิน</p>
+                </div>
+                <div class="component-card">
+                    <h4>👔 Staff (พนักงาน)</h4>
+                    <p>บุคลากรของร้านที่จัดการคำสั่งซื้อ ยืนยันการชำระเงิน และอัปเดตสถานะ</p>
+                </div>
+                <div class="component-card">
+                    <h4>🔐 Admin (ผู้ดูแลระบบ)</h4>
+                    <p>ผู้บริหารระบบที่จัดการข้อมูลหนังสือ ผู้ใช้งาน และรายงาน</p>
+                </div>
+            </div>
+
+            <h3>📱 ชั้นการนำเสนอ (Presentation Layer)</h3>
+            <div class="layer">
+                <strong>Customer Interface</strong> - หน้าเว็บสำหรับลูกค้าในการค้นหา สั่งซื้อ และติดตามคำสั่งซื้อ
+            </div>
+            <div class="layer">
+                <strong>Staff Dashboard</strong> - แผงควบคุมสำหรับพนักงานในการจัดการคำสั่งซื้อและการชำระเงิน
+            </div>
+            <div class="layer">
+                <strong>Admin Dashboard</strong> - แผงควบคุมสำหรับผู้ดูแลระบบในการจัดการข้อมูลและรายงาน
+            </div>
+
+            <h3>🔧 ชั้นธุรกิจ (Business Logic Layer)</h3>
+            <div class="component-list">
+                <div class="component-card">
+                    <h4>👤 User Service</h4>
+                    <p>จัดการการลงทะเบียน เข้าสู่ระบบ และข้อมูลผู้ใช้งาน</p>
+                </div>
+                <div class="component-card">
+                    <h4>📚 Book Service</h4>
+                    <p>จัดการรายการหนังสือ หมวดหมู่ และข้อมูลรายละเอียด</p>
+                </div>
+                <div class="component-card">
+                    <h4>🛒 Order Service</h4>
+                    <p>ประมวลผลการสั่งซื้อ การจัดส่ง และติดตามสถานะ</p>
+                </div>
+                <div class="component-card">
+                    <h4>💳 Payment Service</h4>
+                    <p>จัดการการชำระเงิน การตรวจสอบ และการยืนยัน</p>
+                </div>
+                <div class="component-card">
+                    <h4>📦 Inventory Service</h4>
+                    <p>ติดตามสต็อกสินค้า และจัดการการขาดสินค้า</p>
+                </div>
+            </div>
+
+            <h3>💾 ชั้นข้อมูล (Data Layer)</h3>
+            <div class="layer">
+                <strong>Database (MySQL/PostgreSQL)</strong> - ฐานข้อมูลสำหรับเก็บข้อมูลทั้งหมดของระบบ
+            </div>
+            <div class="layer">
+                <strong>Cache (Session/Data)</strong> - หน่วยเก็บข้อมูลชั่วคราวเพื่อเพิ่มความเร็ว
+            </div>
+
+            <h3>🌐 ระบบภายนอก (External Systems)</h3>
+            <div class="layer">
+                <strong>Email Service</strong> - ระบบส่งอีเมลสำหรับการแจ้งเตือนลูกค้า
+            </div>
+            <div class="layer">
+                <strong>Payment Gateway</strong> - ประตูทางสำหรับการชำระเงินออนไลน์
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>🔄 การไหลของข้อมูล | Data Flow</h2>
+            
+            <h3>1. Customer ค้นหาหนังสือ</h3>
+            <p>Customer UI → User Service (Authentication) → Book Service → Database</p>
+
+            <h3>2. Customer สั่งซื้อ</h3>
+            <p>Customer UI → Order Service → Inventory Service → Payment Service</p>
+
+            <h3>3. Staff จัดการคำสั่งซื้อ</h3>
+            <p>Staff Dashboard → Order Service → Database → Email Service (แจ้งเตือน)</p>
+
+            <h3>4. Admin ดูรายงาน</h3>
+            <p>Admin Dashboard → User Service / Book Service / Order Service → Database</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-back">← กลับไปหน้าแรก | Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CSI204 Software Engineering Workshop #1</p>
+        <p>Wholesale Book Store Management System</p>
+    </footer>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+        mermaid.contentLoaded();
+    </script>
+</body>
+</html>
