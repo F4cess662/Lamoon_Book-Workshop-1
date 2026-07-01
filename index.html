@@ -73,6 +73,17 @@
             border-bottom: 2px solid #f0f0f0;
         }
 
+        .content-section h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            color: #444;
+            margin-bottom: 10px;
+        }
+
         .doc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,11 +109,14 @@
         .doc-card h3 {
             font-size: 1.3em;
             margin-bottom: 10px;
+            color: white;
+            margin-top: 0;
         }
 
         .doc-card p {
             font-size: 0.95em;
             opacity: 0.9;
+            color: white;
         }
 
         .doc-card .icon {
@@ -127,11 +141,73 @@
         .feature-item h3 {
             color: #667eea;
             margin-bottom: 8px;
+            margin-top: 0;
         }
 
         .feature-item p {
             color: #666;
             font-size: 0.95em;
+            margin-bottom: 0;
+        }
+
+        .scope-list {
+            padding-left: 20px;
+            margin: 15px 0 20px 0;
+        }
+
+        .scope-list li {
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .two-col ul {
+            padding-left: 20px;
+        }
+
+        .two-col li {
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .pain-point {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #764ba2;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+
+        .pain-point strong {
+            color: #667eea;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table.data-table th,
+        table.data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        table.data-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        table.data-table tr:nth-child(even) {
+            background: #f8f9fa;
         }
 
         .checklist {
@@ -167,6 +243,22 @@
         .checklist li.pending:before {
             content: "○ ";
             color: #999;
+        }
+
+        code, pre {
+            background: #f4f4f4;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+        }
+
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        code {
+            padding: 2px 6px;
         }
 
         footer {
@@ -222,6 +314,9 @@
             .doc-grid {
                 grid-template-columns: 1fr;
             }
+            table.data-table {
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>
@@ -231,17 +326,17 @@
             <h1>📚 ระบบร้านขายหนังสือ</h1>
             <div class="subtitle">Wholesale Book Store Management System</div>
             <div class="course-info">
-                <strong>Course:</strong> CSI204 - Software Engineering Workshop #1<br>
+                <strong>Course:</strong> CSI204 - Software Engineering Workshop #1
             </div>
         </header>
 
         <div class="content-section">
             <h2>📖 ภาพรวมโครงการ | Project Overview</h2>
             <p>
-                ระบบร้านขายหนังสือแบบขายส่งเป็นเล่ม เป็นระบบจัดการเชิงผสมผสาน ที่ออกแบบเพื่อบริหารจัดการการขายหนังสือให้กับร้านค้า โรงเรียน ห้องสมุด และลูกค้าองค์กร โดยระบบนี้สามารถจัดการข้อมูลหนังสือ สต็อกสินค้า การสั่งซื้อ และการชำระเงินได้อย่างมีประสิทธิภาพ
+                ในปัจจุบันพฤติกรรมการซื้อสินค้าของผู้บริโภคได้เปลี่ยนแปลงไปสู่ช่องทางออนไลน์มากขึ้น ร้านขายหนังสือแบบดั้งเดิมจึงจำเป็นต้องปรับตัวเพื่อตอบสนองความต้องการของลูกค้าที่ต้องการความสะดวกสบายในการเลือกซื้อสินค้าจากทุกที่ทุกเวลา โครงงานนี้จึงพัฒนาระบบร้านขายหนังสือออนไลน์ขึ้น เพื่อเป็นช่องทางจำหน่ายหนังสือแบบปกอ่อนผ่านระบบอินเทอร์เน็ต โดยมีการจัดส่งสินค้าผ่านบริษัทขนส่งและมีระบบติดตามสถานะคำสั่งซื้อให้แก่ลูกค้าด้วย
             </p>
 
-            <h3 style="margin-top: 30px; color: #667eea;">📋 เอกสารโครงการ | Project Documentation</h3>
+            <h3 style="margin-top: 30px;">📋 เอกสารโครงการ | Project Documentation</h3>
             <div class="doc-grid">
                 <a href="README.md" class="doc-card">
                     <div class="icon">📄</div>
@@ -253,66 +348,338 @@
                     <h3>Analysis & Design</h3>
                     <p>เอกสาร SRS รายละเอียด Requirement ปัญหา และการออกแบบระบบ</p>
                 </a>
-                <a href="architecture.html" class="doc-card">
+                <a href="UseCase.png" class="doc-card">
                     <div class="icon">🔗</div>
-                    <h3>System Architecture</h3>
-                    <p>แผนสัญญาณระบบสถาปัตยกรรมโดยใช้ Mermaid Diagram - คลิกเข้าไปดูเลย!</p>
+                    <h3>Use Case Diagram</h3>
+                    <p>แผนภาพการใช้งานระบบ (Use Case Diagram) - คลิกเข้าไปดูเลย!</p>
                 </a>
             </div>
         </div>
 
         <div class="content-section">
-            <h2>🎯 วัตถุประสงค์โครงการ | Project Objectives</h2>
+            <h2>👥 สมาชิกทีม | Team Members</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>รหัสนักศึกษา</th>
+                        <th>ชื่อ</th>
+                        <th>บทบาท</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>67077452</td>
+                        <td>ปรียาภัทร มาลี</td>
+                        <td>หน้ารายละเอียดและรายการโปรด</td>
+                    </tr>
+                    <tr>
+                        <td>67082228</td>
+                        <td>นางสาวอังศุมาลี สีหนา</td>
+                        <td>ตะกร้า ชำระเงิน แสดงสถานะพัสดุฝั่งลูกค้า</td>
+                    </tr>
+                    <tr>
+                        <td>67090695</td>
+                        <td>นายณชพัฒน์ สัมฤทธิ์ยากรณ์</td>
+                        <td>จัดการคลังสินค้า</td>
+                    </tr>
+                    <tr>
+                        <td>67149922</td>
+                        <td>นายสุทธิพงศ์ สัมฤทธิ์</td>
+                        <td>หน้าแดชบอร์ด จัดการสถานะออเดอร์และสถานะพัสดุหลังบ้าน</td>
+                    </tr>
+                    <tr>
+                        <td>67154349</td>
+                        <td>นางสาวชิดชนก จำปาดง</td>
+                        <td>หน้าแรกรายการสินค้าและระบบค้นหา</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2>🎯 วัตถุประสงค์โครงการ | Objectives</h2>
             <div class="feature-list">
                 <div class="feature-item">
-                    <h3>1. พัฒนาระบบจัดการ</h3>
-                    <p>สร้างแพลตฟอร์มดิจิทัลสำหรับการบริหารจัดการการขายหนังสือแบบขายส่ง</p>
+                    <h3>1. อำนวยความสะดวกในการค้นหาและสั่งซื้อ</h3>
+                    <p>เพื่อพัฒนาระบบเว็บไซต์ร้านหนังสือออนไลน์ที่ช่วยให้ผู้ใช้งานสามารถค้นหาและสั่งซื้อหนังสือได้จากทุกที่ทุกเวลา โดยไม่ต้องเสียเวลาเดินทาง</p>
                 </div>
                 <div class="feature-item">
-                    <h3>2. เพิ่มความสะดวก</h3>
-                    <p>ลดเวลาและความยุ่งยากในกระบวนการสั่งซื้อ</p>
+                    <h3>2. ตรวจสอบสต็อกแบบเรียลไทม์</h3>
+                    <p>เพื่อสร้างระบบตรวจสอบสถานะคลังสินค้าแบบเรียลไทม์และระบบค้นหา ช่วยลดปัญหาลูกค้าเดินทางไปหน้าร้านแล้วพบว่าสินค้าหมด</p>
                 </div>
                 <div class="feature-item">
-                    <h3>3. จัดการสต็อก</h3>
-                    <p>ติดตามสินค้าคงเหลือแบบรีอลไทม์และแจ้งเตือนเมื่อหมด</p>
+                    <h3>3. ระบบแนะนำหนังสือ</h3>
+                    <p>เพื่อพัฒนาระบบแนะนำหนังสือ ซึ่งช่วยประกอบการตัดสินใจและสร้างความมั่นใจให้กับลูกค้าก่อนทำการสั่งซื้อจริง</p>
                 </div>
                 <div class="feature-item">
-                    <h3>4. ลดข้อผิดพลาด</h3>
-                    <p>ลดการบันทึกข้อมูลที่ผิดพลาดและเพิ่มความแม่นยำ</p>
+                    <h3>4. ติดตามสถานะคำสั่งซื้อ</h3>
+                    <p>เพื่อพัฒนาระบบติดตามสถานะคำสั่งซื้อที่ช่วยให้ลูกค้าสามารถตรวจสอบสถานะการจัดส่งได้ตลอดเวลา เพิ่มความน่าเชื่อถือในกระบวนการสั่งซื้อ</p>
                 </div>
                 <div class="feature-item">
-                    <h3>5. เพิ่มประสิทธิภาพ</h3>
-                    <p>เพิ่มผลผลิตและลดเวลาในการประมวลผลข้อมูล</p>
+                    <h3>5. ระบบจัดการหลังบ้าน</h3>
+                    <p>เพื่อสร้างระบบจัดการหลังบ้านสำหรับผู้ดูแลระบบ ให้สามารถบริหารจัดการคลังสินค้า ยอดคำสั่งซื้อ และข้อมูลต่างๆ ได้อย่างแม่นยำและเป็นระบบ</p>
                 </div>
             </div>
         </div>
 
         <div class="content-section">
-            <!-- <h2>✅ สถานะความก้าวหน้า | Status Checklist</h2>
-            <div class="checklist">
-                <h3>Workshop Requirements</h3>
-                <ul>
-                    <li>✓ สร้าง GitHub Repository</li>
-                    <li>✓ ใช้ SourceTree (Commit History)</li>
-                    <li>✓ จัดทำเอกสาร README.md</li>
-                    <li>✓ จัดทำเอกสาร Analysis & Design</li>
-                    <li>✓ จัดทำภาพ System Architecture Diagram</li>
-                    <li>✓ GitHub Pages เผยแพรได้จริง</li>
-                </ul>
-            </div> -->
+            <h2>📊 ขอบเขตงาน | Scope</h2>
+            <ol class="scope-list">
+                <li>ระบบค้นหาและตรวจสอบสต็อก</li>
+                <li>ระบบบันทึกรายการโปรดและแนะนำสินค้าที่เกี่ยวข้อง</li>
+                <li>ระบบตะกร้าสินค้า ชำระเงิน และติดตามคำสั่งซื้อ</li>
+                <li>แดชบอร์ดจัดการหลังบ้านแบบรวมศูนย์</li>
+                <li>ระบบอัพเดตสถานะสินค้า</li>
+            </ol>
 
-            <h3 style="margin-top: 20px; color: #667eea;">📞 ลิงก์ที่เกี่ยวข้อง | Related Links</h3>
-            <div class="button-group">
-                <a href="https://github.com/Hiukhaw/Workshop-1" class="btn" target="_blank">🔗 GitHub Repository</a>
-                <a href="https://github.com/Hiukhaw" class="btn btn-secondary" target="_blank">🌐 GitHub Pages</a>
+            <div class="two-col">
+                <div>
+                    <h3>🛍️ ฝั่งลูกค้า (Customer)</h3>
+                    <ul>
+                        <li>สมัครสมาชิกและสร้างบัญชีผู้ใช้งาน</li>
+                        <li>เข้าสู่ระบบด้วยชื่อผู้ใช้และรหัสผ่าน</li>
+                        <li>ดูหน้ารวมสินค้า</li>
+                        <li>ค้นหาหนังสือตามชื่อ หมวดหมู่ หรือผู้แต่ง</li>
+                        <li>ดูรายละเอียดหนังสือ (ราคา สำนักพิมพ์ คำอธิบาย)</li>
+                        <li>เพิ่มหนังสือลงตะกร้า และเลือกจำนวนสินค้า</li>
+                        <li>ชำระเงินผ่านหลายช่องทาง</li>
+                        <li>ตรวจสอบสถานะคำสั่งซื้อและการจัดส่ง</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🔐 ฝั่งผู้ดูแลระบบ (Admin)</h3>
+                    <ul>
+                        <li>เข้าสู่ระบบพื้นที่ admin</li>
+                        <li>เพิ่ม/แก้ไข/ลบข้อมูลหนังสือ</li>
+                        <li>จัดการหมวดหมู่และหมวดย่อย</li>
+                        <li>ดูรายงานยอดขายและการวิเคราะห์ข้อมูล</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
+        <div class="content-section">
+            <h2>🔍 ปัญหาและความต้องการ | Problem Statement & Pain Points</h2>
+            <p>
+                ปัจจุบันผู้อ่านมักพบปัญหาไม่มีเวลาเดินทาง บ้านไกล หรือไปถึงร้านแล้วหนังสือหมดเพราะเช็กสต็อกล่วงหน้าไม่ได้ รวมถึงบางครั้งก็ไม่สะดวกใจที่จะเดินหาหรือสอบถามพนักงาน โครงงานนี้จึงพัฒนาระบบร้านหนังสือออนไลน์เพื่อแก้ปัญหา
+            </p>
+            <div class="pain-point">
+                <strong>เช็กสต็อกและค้นหาง่ายไม่ต้องง้อพนักงาน</strong><br>
+                มีระบบแสดงสต็อกสินค้าแบบ Real-time ให้เช็กได้จากบ้าน และใช้ระบบ Search &amp; Filter ขั้นสูงเพื่อค้นหาหนังสือที่ต้องการได้รวดเร็ว
+            </div>
+            <div class="pain-point">
+                <strong>ช่วยตัดสินใจและสร้างความมั่นใจ</strong><br>
+                มีระบบแนะนำหนังสือสำหรับคนที่ยังไม่รู้จะซื้อเล่มไหน
+            </div>
+            <div class="pain-point">
+                <strong>สั่งซื้อง่ายและการจัดการหลังบ้านเป็นระบบ</strong><br>
+                มีระบบติดตามสถานะคำสั่งซื้อให้ลูกค้าตรวจสอบได้ตลอดเวลา และมี Dashboard ส่วนกลางให้ผู้ดูแลระบบจัดการสต็อกและออเดอร์
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🗓️ ขั้นตอนการดำเนินงาน | Project Phases</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ขั้นตอน (Phase)</th>
+                        <th>รายละเอียดโดยย่อ (Brief Description)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Planning</td>
+                        <td>กำหนดขอบเขตโครงงาน แบ่งหน้าที่ และวางแผนการดำเนินงานตลอดระยะเวลา 4 สัปดาห์</td>
+                    </tr>
+                    <tr>
+                        <td>2. Analysis</td>
+                        <td>วิเคราะห์ความต้องการของระบบ กำหนดสิทธิ์ผู้ใช้งาน และกำหนดความสามารถหลักของระบบ</td>
+                    </tr>
+                    <tr>
+                        <td>3. Design</td>
+                        <td>ออกแบบ Use Case Diagram, sequence diagram, โครงสร้างฐานข้อมูลและออกแบบ Wireframe</td>
+                    </tr>
+                    <tr>
+                        <td>4. Development</td>
+                        <td>พัฒนา Frontend ด้วย React และ HTML/CSS พร้อมพัฒนา Backend API ด้วย Node.js  โดยควบคุมเวอร์ชั่นโค้ดผ่าน GitHub</td>
+                    </tr>
+                    <tr>
+                        <td>5. Testing</td>
+                        <td>ทดสอบการทำงานแบบ Manual Testing, ตรวจสอบ API ด้วย Postman และทำการทดสอบการยอมรับของผู้ใช้</td>
+                    </tr>
+                    <tr>
+                        <td>6. Deployment</td>
+                        <td>รวบรวมระบบทั้งหมดเพื่อเตรียมสภาพแวดล้อมให้พร้อมสำหรับการสาธิต</td>
+                    </tr>
+                    <tr>
+                        <td>7. Maintenance</td>
+                        <td>ดำเนินการแก้ไขข้อผิดพลาดที่ตรวจพบจากการทดสอบ เพื่อให้ระบบทำงานได้สมบูรณ์ตามวัตถุประสงค์ก่อนนำเสนอผลงาน</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2>🏆 ผลลัพธ์ที่คาดว่าจะได้รับ | Expected Outcomes</h2>
+            <ul style="padding-left: 20px;">
+                <li>ผู้จัดทำได้นำความรู้เชิงทฤษฎีด้านการเขียนโปรแกรมและระบบฐานข้อมูล มาประยุกต์ใช้ในการพัฒนาระบบ E-Commerce ได้อย่างเป็นรูปธรรม</li>
+                <li>ผู้จัดทำเกิดความเข้าใจในขั้นตอนและวงจรการพัฒนาระบบ SDLC อย่างเป็นระบบ</li>
+                <li>ผู้จัดทำได้รับการพัฒนาทักษะการคิดวิเคราะห์ การ Debugging และการออกแบบส่วนติดต่อผู้ใช้งาน (UI/UX)</li>
+                <li>ผู้จัดทำได้เรียนรู้การบริหารจัดการเวลาและการวางแผนการทำงาน เพื่อให้โครงงานสำเร็จตามกำหนดเวลา</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📆 แผนการดำเนินงาน 4 สัปดาห์ | Work Plan: 4 Weeks</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>สัปดาห์ (Week)</th>
+                        <th>กิจกรรม (Activities)</th>
+                        <th>รายละเอียดโดยย่อ (Brief Description)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>วิเคราะห์และออกแบบระบบ<br>(Analysis &amp; Design)</td>
+                        <td>วิเคราะห์ความต้องการของระบบ โครงสร้างฐานข้อมูล ออกแบบ Use Case Diagram และ Wireframe หน้าเว็บหลัก (ทำ prototype ผ่าน Figma และเผยแพร่หน้าตัวอย่างเอง)</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>พัฒนา Frontend<br>(Frontend Development)</td>
+                        <td>พัฒนาหน้าเว็บด้วย HTML, CSS, JavaScript ได้แก่ หน้าแสดงรายการหนังสือ หน้ารายละเอียดสินค้า ตะกร้าสินค้า ระบบค้นหา/กรองตามหมวดหมู่ และหน้าที่จำเป็น กรอกที่อยู่จัดส่ง</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>พัฒนา Backend และฐานข้อมูล<br>(Backend &amp; Database Development)</td>
+                        <td>พัฒนา API ด้วย Node.js/Express เชื่อมต่อฐานข้อมูล MySQL จัดการระบบสมาชิก ระบบจัดการสต็อกหนังสือ ระบบคำสั่งซื้อและสถานะการจัดส่ง</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ทดสอบระบบและนำเสนอผลงาน<br>(Testing &amp; Presentation)</td>
+                        <td>ทดสอบการทำงานของระบบทั้งหมด แก้ไขข้อผิดพลาด และเตรียมนำเสนอผลงาน</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2>🧪 แนวทางการทดสอบระบบ | Testing Approach</h2>
+            <div class="two-col">
+                <div>
+                    <h3>ประเภทการทดสอบ (Test Types)</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>☐ Unit Testing</li>
+                        <li>☐ Functional Testing</li>
+                        <li>☐ API Testing</li>
+                        <li>☐ Performance Testing</li>
+                        <li>☐ Security Testing</li>
+                        <li>☑ User Acceptance Testing (UAT)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>เครื่องมือที่ใช้ (Tools)</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>☑ Postman</li>
+                        <li>☐ JMeter</li>
+                        <li>☐ Selenium</li>
+                        <li>☐ Robot Framework</li>
+                        <li>☐ Appium</li>
+                        <li>☑ อื่น ๆ — <strong>Manual Testing</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>💻 เทคโนโลยีที่ใช้ | Technologies</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ประเภท</th>
+                        <th>เทคโนโลยี</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frontend</td>
+                        <td>HTML, CSS, JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td>Backend</td>
+                        <td>Node.js</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>Local Storage</td>
+                    </tr>
+                    <tr>
+                        <td>Design Tool</td>
+                        <td>Figma, Draw.io</td>
+                    </tr>
+                    <tr>
+                        <td>Version Control</td>
+                        <td>Git, GitHub</td>
+                    </tr>
+                    <tr>
+                        <td>Documentation</td>
+                        <td>Markdown</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment</td>
+                        <td>GitHub Pages</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2>🎨 Wireframe</h2>
+            <p>ออกแบบ Wireframe ของทุกหน้าในระบบ (หน้าหลัก, รายการสินค้า, รายละเอียดสินค้า, ตะกร้า, Checkout/ชำระเงิน, Admin Dashboard) ผ่าน Figma</p>
+            <div class="button-group">
+                <a href="https://www.figma.com/proto/kh82F4HpUsVW9bLbcui8wI/wire-freme-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD?node-id=30-2&t=59OMux8jmrkyYX9p-1" class="btn" target="_blank">🎨 ดู Wireframe บน Figma</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📚 เอกสารที่เกี่ยวข้อง | Related Documentation</h2>
+            <ul style="padding-left: 20px;">
+                <li><a href="analysis-design.md"><strong>Analysis &amp; Design Document</strong></a> - เอกสารวิเคราะห์ความต้องการระบบแบบ SRS</li>
+                <li><a href="UseCase.png"><strong>System Architecture Diagram</strong></a> - แผนสัญญาณการใช้งาน (Use Case Diagram)</li>
+                <li><a href="https://www.figma.com/proto/kh82F4HpUsVW9bLbcui8wI/wire-freme-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD?node-id=30-2&t=59OMux8jmrkyYX9p-1" target="_blank"><strong>Wireframe (Figma)</strong></a> - โครงร่างหน้าจอทุกหน้าในระบบ</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>🚀 วิธีการใช้งาน | How to Use</h2>
+            <p><strong>1. Clone Repository</strong></p>
+            <pre><code>git clone https://github.com/Hiukhaw/Workshop-1.git
+cd Workshop-1</code></pre>
+
+            <p><strong>2. ดูเอกสารในระบบ</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 15px;">
+                <li>เปิด <code>index.html</code> ในเบราว์เซอร์</li>
+                <li>หรือเข้าไปยัง GitHub Pages URL</li>
+            </ul>
+
+            <p><strong>3. ดูเอกสารสำหรับการวิเคราะห์</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>อ่าน <code>analysis-design.md</code> เพื่อเข้าใจรายละเอียด</li>
+                <li>ดู <code>UseCase.png</code> สำหรับแผนภาพการใช้งาน</li>
+            </ul>
+        </div>
+
         <div class="content-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white; border-bottom-color: rgba(255, 255, 255, 0.3);">👥 สมาชิกทีม | Team Members</h2>
+            <h2 style="color: white; border-bottom-color: rgba(255, 255, 255, 0.3);">📞 ติดต่อ | Contact</h2>
             <div style="font-size: 1.1em; margin-top: 15px;">
-                <p><strong>Priyaphat</strong></p>
-                <p style="opacity: 0.9; font-size: 0.95em; margin-top: 5px;">เดี๋ยวมาใส่เพิ่ม</p>
+                <p><strong>Project Owner:</strong> Priyaphat</p>
+                <p style="opacity: 0.9; font-size: 0.95em; margin-top: 5px;"><strong>Email:</strong> <em>(to be added)</em></p>
+                <p style="opacity: 0.9; font-size: 0.95em; margin-top: 5px;"><strong>GitHub:</strong> <a href="https://github.com/Hiukhaw" style="color: white; text-decoration: underline;">Hiukhaw</a></p>
+            </div>
+            <div class="button-group">
+                <a href="https://github.com/Hiukhaw/Workshop-1" class="btn" target="_blank" style="background: rgba(255,255,255,0.25);">🔗 GitHub Repository</a>
+                <a href="https://github.com/Hiukhaw" class="btn" target="_blank" style="background: rgba(255,255,255,0.25);">🌐 GitHub Pages</a>
             </div>
         </div>
 
